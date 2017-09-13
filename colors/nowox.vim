@@ -1,36 +1,26 @@
-" Name:     NeoSolarized: Colorscheme for truecolor vim
-" Author:   iCyMind <icyminnd@gmail.com>
-" URL:      https://github.com/iCyMind/NeoSolarized
+" Name:     Nowox: Colorscheme for truecolor vim
+" Author:   nowox <nowox@x0x.ch>
+" URL:      https://github.com/nowox/Nowox
 " License:  MIT
-" Modified: Mon Sep 26 14:45:22 CST 2016
+" Modified: 2017-09-13 Wed 09:16 AM
 
 " Usage "{{{
 "
 " ---------------------------------------------------------------------
-" ABOUT:
-" ---------------------------------------------------------------------
-" Solarized is a carefully designed selective contrast colorscheme with dual
-" light and dark modes that runs in both GUI, 256 and 16 color modes.
-"
-" But the origin solarized does not support truecolor terminal. NeoSolarized
-" is a fixed colorscheme for neovim/vim which running in truecolor supported
-" terminal.
-"
-" ---------------------------------------------------------------------
 " OPTIONS:
 " ---------------------------------------------------------------------
-" g:neosolarized_contrast
-" g:neosolarized_visibility
-" g:neosolarized_diffmode
-" g:neosolarized_termtrans
-" g:neosolarized_bold
-" g:neosolarized_underline
-" g:neosolarized_italic
+" g:nowox_contrast
+" g:nowox_visibility
+" g:nowox_diffmode
+" g:nowox_termtrans
+" g:nowox_bold
+" g:nowox_underline
+" g:nowox_italic
 "
 " ---------------------------------------------------------------------
 " INSTALLATION:
 " ---------------------------------------------------------------------
-" move the NeoSolarized.vim to your VIMRUNTIME by manual or plugin manager
+" move the nowox.vim to your VIMRUNTIME by manual or plugin manager
 "
 " MODIFY VIMRC:
 "
@@ -39,13 +29,13 @@
 "
 "     syntax enable
 "     set background=dark
-"     colorscheme NeoSolarized
+"     colorscheme nowox
 "
 " or, for the light background mode of Solarized:
 "
 "     syntax enable
 "     set background=light
-"     colorscheme NeoSolarized
+"     colorscheme nowox
 "
 " I like to have a different background in GUI and terminal modes, so I can use
 " the following if-then. However, I find vim's background autodetection to be
@@ -108,14 +98,14 @@
 " Default option values"{{{
 " ---------------------------------------------------------------------
 
-let g:neosolarized_contrast = get(g:, "neosolarized_contrast", "normal")
-let g:neosolarized_visibility = get(g:, "neosolarized_visibility", "normal")
-let g:neosolarized_diffmode = get(g:, "neosolarized_diffmode", "normal")
-let g:neosolarized_bold = get(g:, "neosolarized_bold", 1)
-let g:neosolarized_underline = get(g:, "neosolarized_underline", 1)
-let g:neosolarized_italic = get(g:, "neosolarized_italic", 0)
-let g:neosolarized_termtrans = get(g:, "neosolarized_termtrans", 0)
-let g:neosolarized_vertSplitBgTrans = get(g:, "neosolarized_vertSplitBgTrans", 1)
+let g:nowox_contrast = get(g:, "nowox_contrast", "normal")
+let g:nowox_visibility = get(g:, "nowox_visibility", "normal")
+let g:nowox_diffmode = get(g:, "nowox_diffmode", "normal")
+let g:nowox_bold = get(g:, "nowox_bold", 1)
+let g:nowox_underline = get(g:, "nowox_underline", 1)
+let g:nowox_italic = get(g:, "nowox_italic", 0)
+let g:nowox_termtrans = get(g:, "nowox_termtrans", 0)
+let g:nowox_vertSplitBgTrans = get(g:, "nowox_vertSplitBgTrans", 1)
 
 "}}}
 
@@ -125,7 +115,7 @@ hi clear
 if exists("syntax_on")
   syntax reset
 endif
-let colors_name = "NeoSolarized"
+let colors_name = "nowox"
 
 "}}}
 
@@ -134,8 +124,8 @@ let colors_name = "NeoSolarized"
 "
 " Set gui and terminal at the same time.
     let s:gui_mode       = "gui"
-    let s:gui_base03      = "#002b36"
-    let s:gui_base02      = "#073642"
+    let s:gui_base03      = "#151515"
+    let s:gui_base02      = "#252525"
     let s:gui_base01      = "#586e75"
     let s:gui_base00      = "#657b83"
     let s:gui_base0       = "#839496"
@@ -186,7 +176,7 @@ let colors_name = "NeoSolarized"
 
 " Background value based on termtrans setting "{{{
 " ---------------------------------------------------------------------
-if (has("gui_running") || g:neosolarized_termtrans == 0)
+if (has("gui_running") || g:nowox_termtrans == 0)
     let s:gui_back        = s:gui_base03
     let s:term_back        = s:term_base03
 else
@@ -236,7 +226,7 @@ endif
 
 " Optional contrast schemes "{{{
 " ---------------------------------------------------------------------
-if g:neosolarized_contrast == "high"
+if g:nowox_contrast == "high"
     let s:gui_base01      = s:gui_base00
     let s:gui_base00      = s:gui_base0
     let s:gui_base0       = s:gui_base1
@@ -251,7 +241,7 @@ if g:neosolarized_contrast == "high"
     let s:term_base2       = s:term_base3
     let s:term_back        = s:term_back
 endif
-if g:neosolarized_contrast == "low"
+if g:nowox_contrast == "low"
     let s:gui_back        = s:gui_base02
     let s:term_back        = s:term_base02
     let s:ou          = ",underline"
@@ -260,7 +250,7 @@ endif
 
 " Overrides dependent on user specified values and environment "{{{
 " ---------------------------------------------------------------------
-if (g:neosolarized_bold == 0 || &t_Co == 8 )
+if (g:nowox_bold == 0 || &t_Co == 8 )
     let s:b           = ""
     let s:bb          = ",bold"
 else
@@ -268,13 +258,13 @@ else
     let s:bb          = ""
 endif
 
-if g:neosolarized_underline == 0
+if g:nowox_underline == 0
     let s:u           = ""
 else
     let s:u           = ",underline"
 endif
 
-if g:neosolarized_italic == 0
+if g:nowox_italic == 0
     let s:i           = ""
 else
     let s:i           = ",italic"
@@ -451,10 +441,10 @@ exe "hi! Todo"           .s:fmt_bold   .s:fg_magenta.s:bg_none
 
 " Extended highlighting "{{{
 " ---------------------------------------------------------------------
-if  (g:neosolarized_visibility=="high")
+if  (g:nowox_visibility=="high")
     exe "hi! SpecialKey" .s:fmt_revr   .s:fg_red    .s:bg_none
     exe "hi! NonText"    .s:fmt_bold   .s:fg_red    .s:bg_none
-elseif  (g:neosolarized_visibility=="low")
+elseif  (g:nowox_visibility=="low")
     exe "hi! SpecialKey" .s:fmt_bold   .s:fg_base02 .s:bg_none
     exe "hi! NonText"    .s:fmt_bold   .s:fg_base02 .s:bg_none
 else
@@ -472,7 +462,7 @@ exe "hi! MoreMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! ModeMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! LineNr"         .s:fmt_none   .s:fg_base01 .s:bg_base02
 exe "hi! Question"       .s:fmt_bold   .s:fg_cyan   .s:bg_none
-if (g:neosolarized_vertSplitBgTrans == 1)
+if (g:nowox_vertSplitBgTrans == 1)
     exe "hi! VertSplit"  .s:fmt_none   .s:fg_base00 .s:bg_none
 else
     exe "hi! VertSplit"  .s:fmt_none   .s:fg_base00 .s:bg_base00
@@ -484,12 +474,12 @@ exe "hi! WildMenu"       .s:fmt_none   .s:fg_base2  .s:bg_base02 .s:fmt_revbb
 exe "hi! Folded"         .s:fmt_bold   .s:fg_base0  .s:bg_base02  .s:sp_base03
 exe "hi! FoldColumn"     .s:fmt_none   .s:fg_base0  .s:bg_base02
 
-if (g:neosolarized_diffmode=="high")
+if (g:nowox_diffmode=="high")
     exe "hi! DiffAdd"        .s:fmt_revr   .s:fg_green  .s:bg_none
     exe "hi! DiffChange"     .s:fmt_revr   .s:fg_yellow .s:bg_none
     exe "hi! DiffDelete"     .s:fmt_revr   .s:fg_red    .s:bg_none
     exe "hi! DiffText"       .s:fmt_revr   .s:fg_blue   .s:bg_none
-elseif  (g:neosolarized_diffmode=="low")
+elseif  (g:nowox_diffmode=="low")
     exe "hi! DiffAdd"        .s:fmt_undr   .s:fg_green  .s:bg_none   .s:sp_green
     exe "hi! DiffChange"     .s:fmt_undr   .s:fg_yellow .s:bg_none   .s:sp_yellow
     exe "hi! DiffDelete"     .s:fmt_bold   .s:fg_red    .s:bg_none
