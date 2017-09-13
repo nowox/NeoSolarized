@@ -125,7 +125,7 @@ let colors_name = "nowox"
 " Set gui and terminal at the same time.
     let s:gui_mode       = "gui"
     let s:gui_base03      = "#151515"
-    let s:gui_base02      = "#252525"
+    let s:gui_base02      = "#202020"
     let s:gui_base01      = "#586e75"
     let s:gui_base00      = "#657b83"
     let s:gui_base0       = "#839496"
